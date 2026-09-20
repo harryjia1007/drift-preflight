@@ -20,10 +20,12 @@ body:
     attributes:
       label: How did you run it?
       options:
+        - Not specified
         - Extracted GitHub release archive
         - Local npm installation of the downloaded archive
         - Source checkout
         - Not sure
+      default: 0
     validations:
       required: true
   - type: textarea

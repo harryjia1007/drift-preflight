@@ -13,10 +13,12 @@ body:
       label: Who performed the attempt?
       description: If you used AI assistance, note it in the summary below. Choose owner or maintainer if that applies.
       options:
+        - Not specified
         - Independent human user
         - Project owner or maintainer
         - Automated or AI-only run
         - Prefer not to say
+      default: 0
     validations:
       required: true
   - type: dropdown
@@ -24,11 +26,13 @@ body:
     attributes:
       label: Which attempt was this?
       options:
+        - Not specified
         - Did not get the CLI running
         - First use
         - Repeated the same example or task
         - Later use for a different update or task
         - Not sure
+      default: 0
     validations:
       required: true
   - type: dropdown
@@ -37,11 +41,13 @@ body:
       label: What kind of case did you try?
       description: Describe any real-work case only at a high level. Repeating a demo is not a second real-work use.
       options:
+        - Not specified
         - Included synthetic example
         - My own synthetic case
         - Authorized minimized real-work case
         - No case was run
         - Prefer not to say
+      default: 0
     validations:
       required: true
   - type: textarea

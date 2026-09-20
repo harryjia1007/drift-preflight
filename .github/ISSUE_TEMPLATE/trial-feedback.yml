@@ -1,0 +1,65 @@
+name: Trial feedback
+description: Tell us what happened during an actual attempt, including where you got stuck.
+title: "[Trial] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue will be public. High-level summaries are enough. Do not include company or customer names, email addresses, credentials, private paths, raw bundles or full logs. Use [private reporting](https://github.com/harryjia1007/drift-preflight/security/advisories/new) for security findings.
+        You can report an attempt that did not work. Leave optional measurements blank if unknown. Feedback is self-reported; it does not by itself verify time savings or demand.
+  - type: dropdown
+    id: participant
+    attributes:
+      label: Who performed the attempt?
+      description: If you used AI assistance, note it in the summary below. Choose owner or maintainer if that applies.
+      options:
+        - Independent human user
+        - Project owner or maintainer
+        - Automated or AI-only run
+        - Prefer not to say
+    validations:
+      required: true
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Which attempt was this?
+      options:
+        - Did not get the CLI running
+        - First use
+        - Repeated the same example or task
+        - Later use for a different update or task
+        - Not sure
+    validations:
+      required: true
+  - type: dropdown
+    id: case-source
+    attributes:
+      label: What kind of case did you try?
+      description: Describe any real-work case only at a high level. Repeating a demo is not a second real-work use.
+      options:
+        - Included synthetic example
+        - My own synthetic case
+        - Authorized minimized real-work case
+        - No case was run
+        - Prefer not to say
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: What did you try, and what happened?
+      description: Briefly include your task, CLI/Node/OS versions if known, result, main friction and any human or AI help. For a later task, say whether the previous task was real work or synthetic, and what changed.
+    validations:
+      required: true
+  - type: textarea
+    id: effort
+    attributes:
+      label: Time and effort (optional)
+      description: Separate active human minutes from machine waiting. Include setup, preparing the case/assertions, reviewing results and help from others. Say whether timed, estimated or not measured; unknown is not zero.
+      placeholder: "Active human minutes (including helpers): ...\nMachine waiting minutes: ...\nTimed / estimated / not measured: ...\nWhat took the most effort or could be reused: ..."
+  - type: textarea
+    id: comparison
+    attributes:
+      label: Existing alternative (optional)
+      description: Which tests or tool would you normally use? Say whether you actually tried it on the same task and expectations. Not compared or unknown is fine.
+      placeholder: "Alternative: ...\nActually tried on the same task and expectations: ...\nObserved difference, effort or preference and why: ..."

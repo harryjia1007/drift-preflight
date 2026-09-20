@@ -1,0 +1,49 @@
+name: Bug report
+description: Report a CLI or documentation problem with a small synthetic example.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue will be public. Share only synthetic examples and short, sanitized summaries; exclude credentials, customer or company names, email addresses, private paths, raw bundles and full logs.
+        For a suspected vulnerability, use [private vulnerability reporting](https://github.com/harryjia1007/drift-preflight/security/advisories/new) instead.
+        The included semantic-regression example intentionally returns FAIL / exit 1; that alone is not an installation failure.
+  - type: input
+    id: environment
+    attributes:
+      label: CLI version, Node version and operating system
+      placeholder: "For example: alpha.3, Node 24.16.0, macOS arm64"
+    validations:
+      required: true
+  - type: dropdown
+    id: run-method
+    attributes:
+      label: How did you run it?
+      options:
+        - Extracted GitHub release archive
+        - Local npm installation of the downloaded archive
+        - Source checkout
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Prefer an included example or describe a small synthetic change. Do not attach a real bundle or full report.
+      placeholder: "Command and synthetic steps, with any private paths replaced."
+    validations:
+      required: true
+  - type: textarea
+    id: expected-actual
+    attributes:
+      label: Expected and actual result
+      description: Include the observed status and exit code if available. A short sanitized error excerpt is enough.
+      placeholder: "Expected: ...\nActual: ...\nStatus / exit code: ..."
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Anything else that helps reproduce it? (optional)
+      description: For documentation problems, identify the page or step. Keep all details safe for public sharing.

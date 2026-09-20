@@ -89,3 +89,9 @@ Known limits: authored fixture coverage, unauthenticated recordings, hidden envi
 See [security scope and private reporting](SECURITY.md) and the [MIT license](LICENSE). Project home: [harryjia1007/drift-preflight](https://github.com/harryjia1007/drift-preflight). This archive intentionally omits research logs, Python source reproductions, customer data and development scripts.
 
 To stop a trial, stop invoking this local command. No service or background process is installed. Keep the original inputs and treat each new version as a separately verified artifact; no earlier public release is recommended as a rollback.
+
+## Share feedback
+
+[Report a bug or documentation problem](https://github.com/harryjia1007/drift-preflight/issues/new?template=bug-report.yml) or [share an actual trial attempt](https://github.com/harryjia1007/drift-preflight/issues/new?template=trial-feedback.yml), including attempts that got stuck. Sign in to GitHub to submit a report. The trial form separates first use, repeated examples and a later task; timing and tool comparisons are optional.
+
+Issues are public. Share short, sanitized summaries or synthetic examples; exclude secrets, company/customer names, private paths, raw bundles and full logs. Send suspected vulnerabilities through [private reporting](https://github.com/harryjia1007/drift-preflight/security/advisories/new). Feedback is self-reported and does not by itself establish time savings or product demand.

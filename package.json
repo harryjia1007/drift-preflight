@@ -1,0 +1,30 @@
+{
+  "name": "@harryjia1007/drift-preflight",
+  "version": "0.1.0-alpha.3",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "description": "Local evidence-first checks of recorded integration behavior",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/harryjia1007/drift-preflight.git"
+  },
+  "bugs": {
+    "url": "https://github.com/harryjia1007/drift-preflight/issues"
+  },
+  "homepage": "https://github.com/harryjia1007/drift-preflight#readme",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "bin": {
+    "drift": "src/cli.mjs"
+  },
+  "files": [
+    "src/",
+    "examples/",
+    "README.md",
+    "BUNDLE-FORMAT.md",
+    "SECURITY.md",
+    "LICENSE"
+  ]
+}

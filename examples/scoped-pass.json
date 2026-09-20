@@ -1,0 +1,232 @@
+{
+  "bundleVersion": "0.1.0",
+  "integration": {
+    "id": "synthetic-crm",
+    "name": "Synthetic CRM"
+  },
+  "workflows": [
+    {
+      "id": "cancellation-review",
+      "description": "Find all seeded customers who requested cancellation.",
+      "dependsOnTools": [
+        "crm.search_customers"
+      ],
+      "businessExpectations": [
+        "Retain every seeded cancellation-request customer."
+      ],
+      "criticality": "high"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "a1",
+      "workflowId": "cancellation-review",
+      "observationId": "primary",
+      "type": "includes",
+      "path": "/customerIds",
+      "value": "customer_001"
+    },
+    {
+      "id": "a2",
+      "workflowId": "cancellation-review",
+      "observationId": "primary",
+      "type": "includes",
+      "path": "/customerIds",
+      "value": "customer_002"
+    }
+  ],
+  "baseline": {
+    "toolVersions": [
+      {
+        "toolId": "crm.search_customers",
+        "name": "search_customers",
+        "version": "1.0.0",
+        "source": "project-authored mock contract",
+        "capturedAt": "2026-09-19T00:00:00Z",
+        "description": "Search synthetic customer records.",
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "enum": [
+                "help",
+                "requested cancellation"
+              ]
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        },
+        "outputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "customerIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "customerIds"
+          ],
+          "additionalProperties": true
+        }
+      }
+    ],
+    "fixture": {
+      "fixtureId": "fixed-crm-cancellation-fixture",
+      "input": {
+        "query": "requested cancellation"
+      },
+      "environment": {
+        "kind": "local-mock",
+        "region": "test-region",
+        "model": "none",
+        "promptVersion": "none",
+        "runtimeProfile": "synthetic-v1"
+      },
+      "permissions": [
+        "customers:read:all"
+      ],
+      "seedData": [
+        {
+          "id": "customer_001",
+          "status": "active",
+          "requestedCancellation": true
+        },
+        {
+          "id": "customer_002",
+          "status": "cancelled",
+          "requestedCancellation": true
+        }
+      ],
+      "clock": "2026-09-19T00:00:00Z",
+      "locale": "en-US",
+      "timezone": "UTC"
+    },
+    "observations": [
+      {
+        "observationId": "primary",
+        "workflowId": "cancellation-review",
+        "toolId": "crm.search_customers",
+        "httpStatus": 200,
+        "result": {
+          "customerIds": [
+            "customer_001",
+            "customer_002"
+          ]
+        },
+        "sideEffects": []
+      }
+    ]
+  },
+  "candidate": {
+    "toolVersions": [
+      {
+        "toolId": "crm.search_customers",
+        "name": "search_customers",
+        "version": "1.1.0",
+        "source": "project-authored mock contract",
+        "capturedAt": "2026-09-19T00:00:00Z",
+        "description": "Search synthetic customer records.",
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "enum": [
+                "requested cancellation",
+                "help"
+              ]
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false
+        },
+        "outputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "customerIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "customerIds"
+          ],
+          "additionalProperties": true
+        }
+      }
+    ],
+    "fixture": {
+      "fixtureId": "fixed-crm-cancellation-fixture",
+      "input": {
+        "query": "requested cancellation"
+      },
+      "environment": {
+        "kind": "local-mock",
+        "region": "test-region",
+        "model": "none",
+        "promptVersion": "none",
+        "runtimeProfile": "synthetic-v1"
+      },
+      "permissions": [
+        "customers:read:all"
+      ],
+      "seedData": [
+        {
+          "id": "customer_001",
+          "status": "active",
+          "requestedCancellation": true
+        },
+        {
+          "id": "customer_002",
+          "status": "cancelled",
+          "requestedCancellation": true
+        }
+      ],
+      "clock": "2026-09-19T00:00:00Z",
+      "locale": "en-US",
+      "timezone": "UTC"
+    },
+    "observations": [
+      {
+        "observationId": "primary",
+        "workflowId": "cancellation-review",
+        "toolId": "crm.search_customers",
+        "httpStatus": 200,
+        "result": {
+          "customerIds": [
+            "customer_001",
+            "customer_002"
+          ]
+        },
+        "sideEffects": []
+      }
+    ]
+  },
+  "comparisonPolicy": {
+    "requiredFixtureDimensions": [
+      "input",
+      "environment",
+      "permissions",
+      "seedData",
+      "clock",
+      "locale",
+      "timezone"
+    ],
+    "toolVersionsAreTreatment": true
+  }
+}

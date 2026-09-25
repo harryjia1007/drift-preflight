@@ -2,6 +2,8 @@
 
 First public preview of the MIT-licensed local CLI. Compare supplied baseline/candidate recordings against explicit business assertions and inspect JSON evidence for the affected workflow.
 
+第一次使用终端机？请看 [Mac 中文新手操作流程](https://github.com/harryjia1007/drift-preflight/blob/main/QUICKSTART.zh-CN.md)，包含逐步命令、预期结果和出错处理。
+
 ## Included
 
 - Four deterministic assertions: equals, scalar includes, minCount and exists.

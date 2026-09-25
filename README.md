@@ -4,6 +4,8 @@ Compare recorded baseline/candidate tool behavior against explicit workflow asse
 
 An MIT-licensed local CLI for early evaluation. It checks supplied recordings; it does not authenticate their origin or certify an integration as safe. Human onboarding, production workloads and engineering-time savings remain unverified.
 
+第一次使用终端机？请看 [Mac 中文新手操作流程](QUICKSTART.zh-CN.md)，包含逐步命令、预期结果和出错处理。
+
 ## Run from the source checkout
 
 With Node.js 24 installed, run from this repository directory:
